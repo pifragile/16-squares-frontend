@@ -27,7 +27,6 @@ export function resolveIpfsOrigin(type, address) {
 
 export function resolveIpfsSketches(address) {
     if (address) {
-        return address.replace("ipfs://", IPFS_GATEWAY);
         address = insertIndexHtml(address);
         return address.replace("ipfs://", SPACES_ORIGIN_ENDPOINT + "sketches/");
     }

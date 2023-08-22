@@ -59,7 +59,7 @@ export async function getContractMetadata(contract) {
     // trigger ipfs uploader gateway
     console.log('Metadata not found in Spaces')
     let response = await fetch(resolveIpfs(url));
-    fetch(IPFS_UPLOADER_GATEWAY + "json/" + url.replace("ipfs://", ""));
+    //fetch(IPFS_UPLOADER_GATEWAY + "json/" + url.replace("ipfs://", ""));
     return await response.json();
 }
 
