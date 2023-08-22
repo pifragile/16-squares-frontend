@@ -27,6 +27,7 @@ function Layout({ children, favicon = "/favicon.png" }) {
                 gridTemplateRows: "auto 1fr auto",
             }}
         >
+            <img src="/logo.png" style={{position: 'absolute', top: "0", left: "0", width: "100px"}}></img>
             <header>
                 <div className="terminal-nav">
                     <nav className="terminal-menu">
@@ -65,7 +66,7 @@ function Layout({ children, favicon = "/favicon.png" }) {
             <div
                 className="content"
                 style={{
-                    marginTop: "5vh",
+                    marginTop: "10vh",
                 }}
             >
                 {children}
