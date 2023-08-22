@@ -7,27 +7,25 @@ import { useParams } from "react-router-dom";
 import UserDetail from "./UserDetail";
 import { SeriesContext } from "../App";
 import { useContext, useEffect, useState } from "react";
+import { CONTRACT } from "../consts";
 function User() {
     const [query, setQuery] = useState(null);
-    const series = useContext(SeriesContext);
     let { address } = useParams();
 
     useEffect(() => {
-        if (address && series.length > 0) {
+        if (address) {
             let q =
                 "v1/tokens/balances" +
                 "?" +
                 new URLSearchParams({
-                    "token.contract.in": series
-                        .map((c) => c.contract)
-                        .join(","),
+                    "token.contract": CONTRACT,
                     account: address,
                     "balance.gt": 0,
                     "sort.desc": "firstTime",
                 });
             setQuery(q);
         }
-    }, [series, address]);
+    }, [address]);
 
     if (address) {
         return (

@@ -1,33 +1,8 @@
 import { IPFS_UPLOADER_GATEWAY } from "../consts";
 import { resolveIpfs, resolveIpfsCdn } from "../lib/utils";
 import LiveViewIFrame from "./LiveViewIFrame";
-function TokenImage({ displayUrl, url, isBig, showArtifact, strictlyDisplay }) {
-    const displayArtifact = showArtifact || !displayUrl;
-    if (strictlyDisplay && !displayUrl) {
-        return (
-            <div
-                className={
-                    isBig
-                        ? "token-detail-width token-detail-height"
-                        : "standard-width standard-height"
-                }
-                style={{ position: "relative" }}
-            >
-                <div
-                    style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        zIndex: "-100",
-                        paddingTop: "50%",
-                    }}
-                >
-                    Preview not available yet.
-                </div>
-            </div>
-        );
-    }
-    
+function TokenImage({ displayUrl, url, isBig, showArtifact }) {
+    const displayArtifact = showArtifact || !displayUrl;    
     return (
         <div
             className={
@@ -35,7 +10,7 @@ function TokenImage({ displayUrl, url, isBig, showArtifact, strictlyDisplay }) {
                     ? "token-detail-width token-detail-height"
                     : "standard-width standard-height"
             }
-            style={{ position: "relative" }}
+            style={{ position: "relative", border: "solid black 1px" }}
         >
             {displayArtifact && <LiveViewIFrame url={url} />}
 

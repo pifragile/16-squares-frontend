@@ -40,12 +40,12 @@ function SyncButton() {
             }}
         >
             {!activeAccount && (
-                <button className="btn btn-default" onClick={connect}>
+                <button onClick={connect}>
                     Sync
                 </button>
             )}
             {activeAccount && (
-                <button className="btn btn-default" onClick={disconnect}>
+                <button onClick={disconnect}>
                     Unsync
                 </button>
             )}

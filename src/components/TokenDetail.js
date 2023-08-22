@@ -24,7 +24,6 @@ function TokenDetail() {
     const [tokenPrice, setTokenPrice] = useState(null);
     const [owner, setOwner] = useState(null);
     const [token, setToken] = useState(null);
-    const [artist, setArtist] = useState(null);
     const [creator, setCreator] = useState(null);
     const [metadata, setMetadata] = useState(null);
 
@@ -36,7 +35,6 @@ function TokenDetail() {
                 token.tokenId
             );
             setToken(token);
-            setArtist(await getContractStorage(contract, "artist_address"));
             setTokenPrice(
                 await getContractBigmap(contract, "listings", tokenId)
             );
@@ -70,16 +68,12 @@ function TokenDetail() {
                         }}
                     >
                         <div>
-                            <b>Artist:</b>
-                            <UserDetail address={artist} isLink={true} />
-                        </div>
-                        <div>
                             <b>Owner:</b>
                             <UserDetail address={owner} isLink={true} />
                         </div>
 
                         <div>
-                            <b>Co-Creator:</b>
+                            <b>Creator:</b>
                             <UserDetail address={creator} isLink={true} />
                         </div>
                     </div>
@@ -91,10 +85,6 @@ function TokenDetail() {
                     >
                         <button class="btn btn-default">Open live view</button>
                     </a>
-                    <br />
-                    <Link to={`/series/${contract}`}>
-                        <button class="btn btn-default">Go to series</button>
-                    </Link>
                     <br />
                     <div
                         className="token-detail-width"

@@ -7,6 +7,7 @@ import { getTokenMetadata, listContractBigmap } from "./api";
 
 export function resolveIpfsCdn(type, address) {
     if (address) {
+        return address.replace("ipfs://", IPFS_GATEWAY);
         return (
             address.replace("ipfs://", SPACES_CDN_ENDPOINT + type + "/") +
             `.${type}`
@@ -16,6 +17,7 @@ export function resolveIpfsCdn(type, address) {
 
 export function resolveIpfsOrigin(type, address) {
     if (address) {
+        return address.replace("ipfs://", IPFS_GATEWAY);
         return (
             address.replace("ipfs://", SPACES_ORIGIN_ENDPOINT + type + "/") +
             `.${type}`
@@ -25,6 +27,7 @@ export function resolveIpfsOrigin(type, address) {
 
 export function resolveIpfsSketches(address) {
     if (address) {
+        return address.replace("ipfs://", IPFS_GATEWAY);
         address = insertIndexHtml(address);
         return address.replace("ipfs://", SPACES_ORIGIN_ENDPOINT + "sketches/");
     }

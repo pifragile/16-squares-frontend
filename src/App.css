@@ -1,70 +1,158 @@
-.mint-slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 80%; /* Full-width */
-    height: 1px; /* Specified height */
-    background: var(--secondary-color); /* Grey background */
-    outline: None; /* Remove outline */
-    margin: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
+html, body {margin: 0; padding: 0;height: 100%; width: 100%; font-family: 'Castoro Titling', cursive;}
+button {font-family: 'Castoro Titling', cursive;
+
+  background-color: white;
+  border: solid black 1px;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor:pointer;
 }
 
-.mint-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    background: var(--font-color);
-    cursor: pointer;
 
-    background-clip: padding-box;
-    border: 4px solid rgba(0, 255, 0, 0.0%);
-    transform: scale(4.8);
-    box-shadow: inset 0 0 0 9px rgba(255,0,0,0%);
+li,
+li > ul > li {
+  position: relative;
+  display: block;
+  padding-left: calc(var(--global-space) * 2);
+}
 
-  }
+nav > ul > li {
+  padding-left: 0;
+}
 
-  
-  .mint-slider::-moz-range-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    background: var(--font-color);
-    cursor: pointer;
+li::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-    box-sizing: border-box;
-    background-clip: padding-box;
-    border: 4px solid rgba(0, 255, 0, 0.0%);
-    transform: scale(4);
-    box-shadow: inset 0 0 0 10px rgba(255,0,0,0%);
-  }
+ul > li::after {
+  content: "-";
+}
 
-  .show:hover + .list-categories {
-    display: block;
-  }
+nav ul > li::after {
+  content: "";
+}
 
-  .list-categories:hover {
-    display: block;
-  }
-  
-  .list-categories{
-    position:absolute;
-    display: none;
-  }
+ol li::before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
 
-  .standard-width {
-    width: min(400px, 80vw)
-  }
-  .standard-height {
-    height: min(400px, 80vw)
-  }
+ol ol li::before {
+  content: counters(item, ".") " ";
+  counter-increment: item;
+}
+
+.terminal-menu li::after,
+.terminal-menu li::before {
+  display: none;
+}
+
+ol {
+  counter-reset: item;
+}
+
+ol li:nth-child(n+10)::after {
+  left: -7px;
+}
+
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.terminal-menu {
+  width: 100%;
+}
+
+.terminal-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.terminal-menu ul {
+  list-style-type: none;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+  font-size: var(--global-font-size);
+  margin-top: 0;
+}
+
+.terminal-menu li {
+  display: flex;
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+
+ol.terminal-toc li {
+  border-bottom: 1px dotted var(--secondary-color);
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.terminal-menu li:last-child {
+  margin-bottom: 0;
+}
+
+ol.terminal-toc li a {
+  margin: 4px 4px 4px 0;
+  background: var(--background-color);
+  position: relative;
+  top: 6px;
+  text-align: left;
+  padding-right: 4px;
+}
+
+.terminal-menu li a:not(.btn) {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  border: none;
+  color: var(--secondary-color);
+}
+
+
+.terminal-menu ul {
+  flex-direction: row;
+  justify-items: flex-end;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.terminal-menu li {
+  margin: 0;
+  margin-right: 2em;
+}
+
+
+.standard-width {
+  width: min(400px, 80vw)
+}
+.standard-height {
+  height: min(400px, 80vw)
+}
 
 .token-detail-width {
-  width: 35vw;
-  min-width: 300px;
+width: 35vw;
+min-width: 300px;
 }
 
 .token-detail-height {
-  height: 35vw;
-  min-height: 300px;
+height: 35vw;
+min-height: 300px;
 }
