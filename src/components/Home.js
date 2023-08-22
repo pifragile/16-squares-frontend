@@ -145,7 +145,7 @@ function Home() {
                                 width: "30vw",
                                 border: "solid black 1px",
                             }}
-                            src={`http://localhost:5501?data=${encodeData(
+                            src={`https://editart.fra1.digitaloceanspaces.com/sketches/QmddYpPrXd72RkX6ekVgjmPUwBx9vYpZxPkg7KSwBBZbJD/index.html?data=${encodeData(
                                 code
                             )}`}
                         />
