@@ -2,6 +2,7 @@ import { IPFS_UPLOADER_GATEWAY } from "../consts";
 import { resolveIpfs, resolveIpfsCdn } from "../lib/utils";
 import LiveViewIFrame from "./LiveViewIFrame";
 function TokenImage({ displayUrl, url, isBig, showArtifact }) {
+    displayUrl = null;
     const displayArtifact = showArtifact || !displayUrl;    
     return (
         <div
