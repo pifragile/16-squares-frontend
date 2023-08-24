@@ -109,15 +109,15 @@ function Home() {
         <Layout>
             <h1>16 squares - code art for everyone</h1>
             <p>
-                In the code editor below, you can define a background color and
-                16 squares.<br></br>
-                Each square has an x and y coordinate, a width w and a color c.
-                <br></br>
-                For x, y and w, use values from 0 to 1000.
-                <br></br>
-                <br></br>
-                Let those constraints fuel your creativity!
+                "art lives from constraints and dies from freedom" - leonardo da
+                vinci
             </p>
+            <br />
+            <p>
+                minting is free | only gas and storage cost | your squares are
+                stored on-chain
+            </p>
+            <br />
             <div style={{ display: "flex" }}>
                 <CodeEditor
                     value={code}
@@ -137,12 +137,12 @@ function Home() {
                 {error && <div>{error}</div>}
 
                 {error === null && (
-                    <div>
+                    <div style={{ height: "35vw", width: "35vw" }}>
                         <iframe
                             title="mint"
                             style={{
-                                height: "30vw",
-                                width: "30vw",
+                                height: "35vw",
+                                width: "35vw",
                                 border: "solid black 1px",
                             }}
                             src={`https://editart.fra1.digitaloceanspaces.com/sketches/QmddYpPrXd72RkX6ekVgjmPUwBx9vYpZxPkg7KSwBBZbJD/index.html?data=${encodeData(
@@ -151,6 +151,22 @@ function Home() {
                         />
                         <br></br>
                         <button onClick={handleMint}>Mint</button>
+                        <p>
+                            In the code editor, you can define a
+                            background color and 16 squares. Each square has an
+                            x and y coordinate, a width w and a color c.
+                            Use values from 0 to 1000.
+                            <br></br>
+                            <br></br>
+                            Let those constraints fuel your creativity!
+                            <br></br>
+
+                            <br></br>
+                            <small>
+                                mints will show up in "my collection" | you can
+                                then sell them on the marketplace
+                            </small>
+                        </p>
                     </div>
                 )}
             </div>
