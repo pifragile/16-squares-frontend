@@ -4,6 +4,7 @@ import CodeEditor from "@uiw/react-textarea-code-editor";
 import Cookies from "universal-cookie";
 import { WalletContext, mint } from "../lib/wallet";
 import { CONTRACT } from "../consts";
+import { resolveIpfsSketches } from "../lib/utils";
 
 function Home() {
     const wallet = useContext(WalletContext);
@@ -145,22 +146,21 @@ function Home() {
                                 width: "35vw",
                                 border: "solid black 1px",
                             }}
-                            src={`https://editart.fra1.digitaloceanspaces.com/sketches/QmddYpPrXd72RkX6ekVgjmPUwBx9vYpZxPkg7KSwBBZbJD/index.html?data=${encodeData(
-                                code
-                            )}`}
+                            src={`${resolveIpfsSketches(
+                                "ipfs://QmeW9FqWhRUkigA5bEALQMYTuvEByKnPrneUME3Mb2pbuL"
+                            )}?data=${encodeData(code)}`}
                         />
                         <br></br>
                         <button onClick={handleMint}>Mint</button>
                         <p>
-                            In the code editor, you can define a
-                            background color and 16 squares. Each square has an
-                            x and y coordinate, a width w and a color c.
-                            Use values from 0 to 1000.
+                            In the code editor, you can define a background
+                            color and 16 squares. Each square has an x and y
+                            coordinate, a width w and a color c. Use values from
+                            0 to 1000.
                             <br></br>
                             <br></br>
                             Let those constraints fuel your creativity!
                             <br></br>
-
                             <br></br>
                             <small>
                                 mints will show up in "my collection" | you can

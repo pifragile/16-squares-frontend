@@ -7,4 +7,4 @@ export const IPFS_UPLOADER_GATEWAY = 'https://editartipfsgateway-yj23z.ondigital
 export const SPACES_CDN_ENDPOINT = 'https://editart.fra1.cdn.digitaloceanspaces.com/'
 export const SPACES_ORIGIN_ENDPOINT = 'https://editart.fra1.digitaloceanspaces.com/'
 export const ENV = process.env.REACT_APP_ENV || 'dev';
-export const CONTRACT = ENV === 'prod' ? '' : 'KT1N9CraqXdHKZjut4D9g9UJjKmyxTCw9Y6K'
+export const CONTRACT = ENV === 'prod' ? '' : 'KT19UG7ia4kD27GRAbUM1M5VynMkiKy3jPxo'
