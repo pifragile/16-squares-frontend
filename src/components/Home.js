@@ -41,6 +41,10 @@ function Home() {
         return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(c);
     }
 
+    function validateCoords(c) {
+        return typeof c === "number" && c <= 1000 && c >= 0;
+    }
+
     function validateData(data) {
         setError(null);
         try {
@@ -60,12 +64,9 @@ function Home() {
 
         for (let box of data.boxes) {
             if (
-                typeof box.x === "number" &&
-                box.x <= 1000 &&
-                typeof box.y === "number" &&
-                box.y <= 1000 &&
-                typeof box.w === "number" &&
-                box.w <= 1000 &&
+                validateCoords(box.x)&&
+                validateCoords(box.y)&&
+                validateCoords(box.w)&&
                 validateColor(box.c)
             )
                 continue;
@@ -147,7 +148,7 @@ function Home() {
                                 border: "solid black 1px",
                             }}
                             src={`${resolveIpfsSketches(
-                                "ipfs://QmeFcyLEFJh8FBa1ewra8339qpMiLyxRZvFhjfzicSYCuC"
+                                "ipfs://QmWKK1veeVGL8DecekK3AjSbiTReMjjzwMuf8xFTFHMY3n"
                             )}?data=${encodeData(code)}`}
                         />
                         <br></br>
