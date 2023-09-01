@@ -14,7 +14,7 @@ function Home() {
         prettyPrint(cookies.get("code")) ||
             prettyPrint(`{
   "background": "#ffffff",
-  "boxes": [
+  "squares": [
     { "x": 300, "y": 300, "w": 400, "c": "#000000" },
     { "x": 0, "y": 0, "w": 0, "c": "#000000" },
     { "x": 0, "y": 0, "w": 0, "c": "#000000" },
@@ -57,12 +57,12 @@ function Home() {
             setError("invalid background color.");
             return false;
         }
-        if (!data.boxes.length === 16) {
+        if (!data.squares.length === 16) {
             setError("invlalid amount of boxes. you need 16");
             return false;
         }
 
-        for (let box of data.boxes) {
+        for (let box of data.squares) {
             if (
                 validateCoords(box.x)&&
                 validateCoords(box.y)&&
@@ -81,7 +81,7 @@ function Home() {
         data = JSON.parse(data);
         let arr = [];
         arr.push(data.background.substring(1));
-        for (let box of data.boxes) {
+        for (let box of data.squares) {
             arr.push(box.x);
             arr.push(box.y);
             arr.push(box.w);
