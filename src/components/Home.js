@@ -57,7 +57,8 @@ function Home() {
             setError("invalid background color.");
             return false;
         }
-        if (!data.squares.length === 16) {
+        console.log(data.squares.length)
+        if (data.squares.length !== 16) {
             setError("invlalid amount of boxes. you need 16");
             return false;
         }
