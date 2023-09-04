@@ -1,5 +1,6 @@
 import { CONTRACT } from "../consts";
 import { getToken } from "../lib/api";
+import { addCreators } from "../lib/utils";
 import Layout from "./Layout";
 import TokenOverview from "./TokenOverview";
 
@@ -14,6 +15,7 @@ function MarketPlace() {
                 tokens.push(token);
             }
         }
+        tokens = addCreators(tokens);
         return tokens;
     }
 
@@ -23,7 +25,7 @@ function MarketPlace() {
             <TokenOverview
                 query={query}
                 extractTokens={extractTokensForMarketplace}
-                pageLength={6}
+                pageLength={20}
             />
         </Layout>
     );

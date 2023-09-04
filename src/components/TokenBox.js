@@ -9,7 +9,8 @@ function TokenBox({ id, contract, title, artifactUri, displayUri, price, creator
             displayUri={displayUri}
             link={`/token-detail/${contract}/${id}`}
             line1={title}
-            line2={price ? `${formatMutez(price)}`: <span>by <UserDetail address={creator} isLink={true}/></span>}
+            line2={<span>by <UserDetail address={creator} isLink={true}/></span>}
+            line3={price ? `${formatMutez(price)}` : null}
         />
     );
 }

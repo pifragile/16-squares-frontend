@@ -41,7 +41,8 @@ export function resolveIpfs(address) {
 export function formatMutez(mutez) {
     return `${mutez / 1000000} tez`;
 }
-async function addCreators(data) {
+
+export async function addCreators(data) {
     const creators = {};
     for (let token of data) {
         const address = token.contract.address;

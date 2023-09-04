@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import TokenImage from "./TokenImage";
 
-function Box({ artifactUri, displayUri, link, line1, line2 }) {
+function Box({ artifactUri, displayUri, link, line1, line2, line3 }) {
     return (
         <div
             style={{
@@ -10,7 +10,11 @@ function Box({ artifactUri, displayUri, link, line1, line2 }) {
                 margin: "10px 30px 20px 0",
             }}
         >
-            <TokenImage url={artifactUri} displayUrl={displayUri} strictlyDisplay={true}/>
+            <TokenImage
+                url={artifactUri}
+                displayUrl={displayUri}
+                strictlyDisplay={true}
+            />
 
             <div
                 style={{
@@ -32,9 +36,20 @@ function Box({ artifactUri, displayUri, link, line1, line2 }) {
                     {line2}
                 </div>
             )}
+            {line3 && (
+                <div
+                    style={{
+                        marginTop: "3px",
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                    }}
+                >
+                    {line3}
+                </div>
+            )}
             <Link to={link}>
                 <div
-                    className ="standard-width standard-height"
+                    className="standard-width standard-height"
                     style={{
                         position: "absolute",
                         top: "0",
