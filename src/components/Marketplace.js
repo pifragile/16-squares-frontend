@@ -5,9 +5,10 @@ import Layout from "./Layout";
 import TokenOverview from "./TokenOverview";
 
 function MarketPlace() {
-    const query = `v1/contracts/${CONTRACT}/bigmaps/listings/keys?active=true`;
+    const query = `v1/contracts/${CONTRACT}/bigmaps/listings/keys?active=true&sort.desc=lastLevel`;
     async function extractTokensForMarketplace(data) {
         let tokens = [];
+        console.log(data)
         for (let item of data) {
             let token = await getToken(CONTRACT, item.key);
             if (token) {
@@ -21,7 +22,7 @@ function MarketPlace() {
 
     return (
         <Layout>
-            <h1>Marketplace</h1>
+            <h1>16 SQUARES - CODE ART FOR EVERYONE</h1>
             <TokenOverview
                 query={query}
                 extractTokens={extractTokensForMarketplace}

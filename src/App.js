@@ -18,14 +18,14 @@ function App() {
         <WalletContext.Provider value={wallet}>
             <div className="App">
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/mint" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route
                         path="/token-detail/:contract/:tokenId"
                         element={<TokenDetail />}
                     />
                     <Route path="/user/:address" element={<User />} />
-                    <Route path="/marketplace" element={<MarketPlace />} />
+                    <Route path="/" element={<MarketPlace />} />
                 </Routes>
             </div>
         </WalletContext.Provider>

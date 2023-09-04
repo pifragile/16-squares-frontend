@@ -39,7 +39,7 @@ function Layout({ children, favicon = "/favicon.png" }) {
                             </li>
                             <li key="Series">
                                 <span className="menu-item">
-                                    <Link to="/marketplace">Marketplace</Link>
+                                    <Link to="/mint">Mint</Link>
                                 </span>
                             </li>
                             <li key="MyCollection">
