@@ -55,7 +55,6 @@ function Box({ artifactUri, displayUri, link, line1, line2, line3 }) {
                         top: "0",
                         left: "0",
                         display: "inline-block",
-                        padding: "20px",
                     }}
                 ></div>
             </Link>

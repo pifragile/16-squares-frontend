@@ -156,3 +156,13 @@ min-width: 300px;
 height: 35vw;
 min-height: 300px;
 }
+
+a, a:visited, a:link {
+
+  text-decoration: none;
+  color: black;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
