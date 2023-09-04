@@ -149,7 +149,7 @@ function Home() {
                                 border: "solid black 1px",
                             }}
                             src={`${resolveIpfsSketches(
-                                "ipfs://QmNjRXvsqn3XM89F6zNDRqtQHSTp3cmnQPGXkPeYuoLjX2"
+                                "ipfs://QmSTjavVgpJhTdH1nnFJa7HfyBhPHoEhn84wxhmu8Kvpfv"
                             )}?data=${encodeData(code)}`}
                         />
                         <br></br>
