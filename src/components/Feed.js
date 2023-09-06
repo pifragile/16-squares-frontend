@@ -7,7 +7,6 @@ import UserDetail from "./UserDetail";
 import LoadMoreButton from "./LoadMoreButton";
 import Layout from "./Layout";
 function Feed() {
-    const series = useContext(SeriesContext);
     const [feedData, setFeedData] = useState([]);
 
     const pageLength = 10;
@@ -19,21 +18,19 @@ function Feed() {
     };
 
     useEffect(() => {
-        if (series.length > 0) {
-            async function action() {
-                if (maybeMore) {
-                    const result = await getFeed(series, pageLength, page);
-                    if (result.length > 0) {
-                        setFeedData(f => f.concat(result));
-                        setMaybeMore(result.length === pageLength);
-                    } else {
-                        setPage(Math.max(page - pageLength, 0));
-                    }
+        async function action() {
+            if (maybeMore) {
+                const result = await getFeed(pageLength, page);
+                if (result.length > 0) {
+                    setFeedData((f) => f.concat(result));
+                    setMaybeMore(result.length === pageLength);
+                } else {
+                    setPage(Math.max(page - pageLength, 0));
                 }
             }
-            action().catch(console.error);
         }
-    }, [series, page, maybeMore]);
+        action().catch(console.error);
+    }, [page, maybeMore]);
 
     if (feedData.length > 0) {
         return (
@@ -44,7 +41,7 @@ function Feed() {
                         {new Date(e.timestamp).toLocaleString()} |{" "}
                         <UserDetail address={e.sender} isLink={true} /> {e.verb}{" "}
                         <Link to={`/token-detail/${e.contract}/${e.tokenId}`}>
-                            {e.collectionName} {e.tokenId}
+                            {e.collectionName} #{e.tokenId}
                         </Link>{" "}
                         for {formatMutez(e.price)}
                     </p>

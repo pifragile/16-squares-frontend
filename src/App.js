@@ -9,6 +9,7 @@ import MarketPlace from "./components/Marketplace";
 import About from "./components/About";
 
 import { WalletContext, beaconWallet } from "./lib/wallet";
+import Feed from "./components/Feed";
 export const ModeContext = createContext(0);
 export const SeriesContext = createContext([]);
 
@@ -19,6 +20,7 @@ function App() {
             <div className="App">
                 <Routes>
                     <Route path="/mint" element={<Home />} />
+                    <Route path="/feed" element={<Feed />} />
                     <Route path="/about" element={<About />} />
                     <Route
                         path="/token-detail/:contract/:tokenId"

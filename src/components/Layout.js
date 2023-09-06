@@ -27,12 +27,20 @@ function Layout({ children, favicon = "/favicon.png" }) {
                 gridTemplateRows: "auto 1fr auto",
             }}
         >
-            <img src="/logo.png" style={{position: 'absolute', top: "0", left: "0", width: "100px"}}></img>
+            <img
+                src="/logo.png"
+                style={{
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "100px",
+                }}
+            ></img>
             <header>
                 <div className="terminal-nav">
                     <nav className="terminal-menu">
                         <ul>
-                        <li key="Home">
+                            <li key="Home">
                                 <span className="menu-item">
                                     <Link to="/">Home</Link>
                                 </span>
@@ -40,6 +48,11 @@ function Layout({ children, favicon = "/favicon.png" }) {
                             <li key="Series">
                                 <span className="menu-item">
                                     <Link to="/mint">Mint</Link>
+                                </span>
+                            </li>
+                            <li key="Feed">
+                                <span className="menu-item">
+                                    <Link to="/feed">Feed</Link>
                                 </span>
                             </li>
                             <li key="MyCollection">
