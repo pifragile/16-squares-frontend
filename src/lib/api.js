@@ -2,6 +2,18 @@ import { CONTRACT, IPFS_UPLOADER_GATEWAY, TZKT_API } from "../consts";
 import { bytes2Char } from "@taquito/utils";
 import { resolveIpfs, resolveIpfsOrigin } from "./utils";
 
+export async function getTokens(contract, tokenIds) {
+    let query = `v1/tokens/?contract=${contract}&tokenId.in=${tokenIds.join(",")}`;
+    let res = await fetch(TZKT_API + query);
+    let data = await res.json();
+    if (data.length > 0) {
+        return data;
+    } else {
+        return null;
+    }
+}
+
+
 export async function getToken(contract, tokenId) {
     let query = `v1/tokens/?contract=${contract}&tokenId=${tokenId}`;
     let res = await fetch(TZKT_API + query);

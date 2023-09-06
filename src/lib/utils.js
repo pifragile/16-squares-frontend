@@ -42,6 +42,21 @@ export function formatMutez(mutez) {
     return `${mutez / 1000000} tez`;
 }
 
+export async function addPrices(data) {
+    const prices = {};
+    for (let token of data) {
+        const address = token.contract.address;
+        if (!(address in prices)) {
+            prices[address] = await listContractBigmap(address, "listings");
+        }
+        token.price = prices[address].find(
+            (e) => e.key === token.tokenId
+        )?.value;
+    }
+    return data;
+}
+
+
 export async function addCreators(data) {
     const creators = {};
     for (let token of data) {
