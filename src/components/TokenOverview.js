@@ -9,11 +9,21 @@ function TokenOverview({ query, pageLength, extractTokens }) {
     const [oldPage, setOldPage] = useState(0);
     const [maybeMore, setMaybeMore] = useState(true);
     const [update, setUpdate] = useState(1);
+    const [dummy, setDummy] = useState(0);
 
     const loadMore = () => {
         setOldPage(page);
         setPage(Math.max(page + pageLength, 0));
     };
+
+    useEffect(() => {
+        setTokens(null);
+        setPage(0)
+        setOldPage(0)
+        setMaybeMore(true)
+        setUpdate(1)
+        setDummy(Math.random())
+    }, [query, pageLength, extractTokens]);
 
     useEffect(() => {
         async function fetchTokens() {
@@ -47,7 +57,8 @@ function TokenOverview({ query, pageLength, extractTokens }) {
         }
 
         fetchTokens().catch(console.error);
-    }, [maybeMore, tokens, extractTokens, oldPage, page, pageLength, query]);
+    }, [maybeMore, tokens, oldPage, page, dummy]);
+
 
     if (tokens && update) {
         if (tokens.length === 0) return "No tokens.";
